@@ -1,0 +1,60 @@
+//Nicolas Fischer, 06/07/2022 às 18:50
+//Algoritmo responsável por calcular a quantia correta de moedas a serem devolvidas - sempre a menor possível.
+
+//Bibliotecas
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+
+//Declaração de variáveis
+    float troco;
+    int moeda25, moeda10, moeda5, moeda1;
+
+//Captação da variável troco - que deve ser maior que 0 - que adiante será convertida em inteiro
+    do
+    {
+
+        troco = get_float("Digite quanto voltar de troco: \n");
+
+    }while(troco < 0);
+//Convertendo a variável troco em números inteiro pois em float o código não funcionar
+    troco = troco *100;
+//Daqui em diante, o código verifica e calcula quantas moedas tem de devolver
+    while(troco >= 25 )
+    {
+
+        troco = troco - 25;
+        moeda25 = moeda25 + 1;
+
+    }
+
+    while(troco >= 10)
+    {
+
+        troco = troco - 10;
+        moeda10 = moeda10 + 1;
+
+    }
+
+    while(troco >= 5)
+    {
+
+        troco = troco - 5;
+        moeda5 = moeda5 + 1;
+
+    }
+
+    while(troco >= 1)
+    {
+
+        troco = troco - 1;
+        moeda1 = moeda1 + 1;
+
+    }
+//Imprimi os resultados
+    printf("\n");
+    printf("Foram usadas %i moedas de 25 centavos, %i moedas de 10 centavos, %i moedas de 5 centavos, %i moedas de 1 centavo\n", moeda25, moeda10, moeda5, moeda1);
+
+}
